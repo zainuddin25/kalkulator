@@ -1,0 +1,118 @@
+========== PHP ==========
+
+
+
+<DOCTYPE html>
+<html>
+<head>
+	<title>KALKULATOR SEDERHANA | www.mzainuddinbasyar.com</title>
+	<link rel="stylesheet" type="text/css" href="20.css">
+</head>
+<body>
+	<?php 
+	if(isset($_POST['hitung'])){
+		$bil1 = $_POST['bil1'];
+		$bil2 = $_POST['bil2'];
+		$operasi = $_POST['operasi'];
+		switch ($operasi) {
+			case 'tambah':
+				$hasil = $bil1+$bil2;
+			break;
+			case 'kurang':
+				$hasil = $bil1-$bil2;
+			break;
+			case 'kali':
+				$hasil = $bil1*$bil2;
+			break;
+			case 'bagi':
+				$hasil = $bil1/$bil2;
+			break;			
+		}
+	}
+	?>
+	<div class="kalkulator">
+		<h4 class="judul">KALKULATOR BERBASIS WEB SEDERHANA</h4>
+		<a class="brand" href="https://www.mzainuddinbasyar.com">www.mzainuddinbasyar.com</a>
+		<form method="post" action="10.php">			
+			<input type="text" name="bil1" class="bil" autocomplete="off" placeholder="Bilangan pertama">
+			<input type="text" name="bil2" class="bil" autocomplete="off" placeholder="Bilangan kedua">
+			<select class="opt" name="operasi">
+				<option value="tambah">tambah</option>
+				<option value="kurang">kurang</option>
+				<option value="kali">kali</option>
+				<option value="bagi">bagi</option>
+			</select>
+			<input type="submit" name="hitung" value="Hasil" class="tombol">											
+		</form>
+		<?php if(isset($_POST['hitung'])){ ?>
+			<input type="text" value="<?php echo $hasil; ?>" class="bil">
+		<?php }else{ ?>
+			<input type="text" value="0" class="bil">
+		<?php } ?>			
+	</div>
+</body>
+</html>
+
+
+========== CSS ==========
+
+
+
+
+body{
+    	background: #ff0000;
+	font-family: sans-serif;
+}
+ 
+.kalkulator{
+	width: 335px;
+	background: #fbff00;
+	margin: 100px auto;
+	padding: 10px 20px 50px 20px;
+	border-radius: 5px;
+	
+}
+ 
+.bil{
+	width: 300px;
+	margin: 5px;
+	border: none;
+	font-size: 16pt;
+	border-radius: 5px;
+	padding: 10px;	
+}
+ 
+.opt{
+	font-size: 16pt;
+	border: none;
+	width: 215px;
+	margin: 5px;
+	border-radius: 5px;
+	padding: 10px;
+}
+ 
+.tombol{
+	background: #ffffff;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	color: #000000;
+	font-size: 15pt;
+	border-bottom:4px solid #ffffff;
+}
+ 
+.brand{
+	color: rgb(255, 0, 0);
+	font-size: 11pt;
+	float: right;
+	text-decoration: none;
+	margin: 12px;
+}
+ 
+.judul{
+	text-align: center;
+	color: rgb(255, 0, 0);
+	font-weight: kd;
+}
